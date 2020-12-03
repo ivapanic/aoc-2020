@@ -6,7 +6,6 @@
 constexpr int SUM = 2020;
 int main()
 {
-	std::string buffer;
 	std::ifstream stream("./input.txt");
 	std::vector<int> entries;
 
