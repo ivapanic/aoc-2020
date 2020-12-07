@@ -71,6 +71,6 @@ int main()
 		//...ends here
 	}
 
-	std::cout << "" << num_valid;
+	std::cout << num_valid;
 
 }

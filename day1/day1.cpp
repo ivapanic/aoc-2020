@@ -6,7 +6,7 @@
 constexpr int SUM = 2020;
 int main()
 {
-	std::ifstream stream("./input.txt");
+	std::ifstream stream("./day1/input.txt");
 	std::vector<int> entries;
 
 	int entry, max_next_entry = 2020;
@@ -23,7 +23,7 @@ int main()
 			////starts here...
 			if (entry + second_entry == SUM)
 			{
-				std::cout << "" << entry * second_entry;
+				std::cout << entry * second_entry;
 				exit(0);
 			}
 			//...ends here
@@ -34,8 +34,8 @@ int main()
 			{
 				if (entry + second_entry + third_entry == SUM)
 				{
-					std::cout << "" << entry * second_entry * third_entry;
-					exit(0);
+					std::cout << entry * second_entry * third_entry;
+					return 0;
 				}
 			}
 			//...ends here

@@ -5,7 +5,7 @@
 #include <vector>
 
 
-std::vector<std::string> extend_tree_field(int num_right, std::vector<std::string> trees)
+std::vector<std::string> extend_tree_field(int num_right, std::vector<std::string>& trees)
 {
     std::vector<std::string> new_trees(trees);
     for (long i = 0; i < new_trees.size(); ++i)
@@ -22,7 +22,7 @@ std::vector<std::string> extend_tree_field(int num_right, std::vector<std::strin
 }
 
 
-int determine_num_trees(int num_right, int num_down, std::vector<std::string> trees)
+int determine_num_trees(int num_right, int num_down, std::vector<std::string>& trees)
 {
     trees = extend_tree_field(num_right, trees);
 
@@ -54,5 +54,5 @@ int main()
         trees.push_back(line);
     
     unsigned long num_trees = determine_num_trees(1, 1, trees) * determine_num_trees(3, 1, trees) * determine_num_trees(5, 1, trees) * determine_num_trees(7, 1, trees) * determine_num_trees(1, 2, trees);
-    std::cout << "" << num_trees;
+    std::cout << num_trees;
 }
