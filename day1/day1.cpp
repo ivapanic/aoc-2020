@@ -6,7 +6,7 @@
 constexpr int SUM = 2020;
 int main()
 {
-	std::ifstream stream("./day1/input.txt");
+	std::ifstream stream("./input.txt");
 	std::vector<int> entries;
 
 	int entry, max_next_entry = 2020;
