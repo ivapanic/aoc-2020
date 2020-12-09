@@ -3,11 +3,11 @@
 > https://adventofcode.com  
  
   
- --- Day 1: [*Report Repair*](./day1/Day\ 1\ -\ Advent\ of\ Code\ 2020) -> [*:sparkler:*](./day1/day1.cpp)    
+ --- Day 1: [*Report Repair*](https://github.com/ivapanic/aoc-2020/blob/main/day1/Day%201%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day1/day1.cpp)    
  --- Day 2: [*Password Philosophy*](https://github.com/ivapanic/aoc-2020/blob/main/day2/Day%202%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day2/day2.cpp)  
  --- Day 3: [*Toboggan Trajectory*](https://github.com/ivapanic/aoc-2020/blob/main/day3/Day%203%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day3/day3.cpp)  
- --- Day 4: [*Passport Processing*](./day4/Day\ 4 -\ Advent\ of\ Code\ 2020) -> [*:sparkler:*](./day4/day4.cpp)  
- --- Day 5: [*Binary Boarding*](./day5/Day\ 5 -\ Advent\ of\ Code\ 2020) -> [*:sparkler:*](./day5/day5.cpp)    
+ --- Day 4: [*Passport Processing*](https://github.com/ivapanic/aoc-2020/blob/main/day4/Day%204%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day4/day4.cpp)  
+ --- Day 5: [*Binary Boarding*](https://github.com/ivapanic/aoc-2020/blob/main/day5/Day%205%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day5/day5.cpp)    
  --- Day 6:  
  --- Day 7:  
  --- Day 8:  
