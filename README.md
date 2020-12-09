@@ -8,7 +8,7 @@
  --- Day 3: [*Toboggan Trajectory*](https://github.com/ivapanic/aoc-2020/blob/main/day3/Day%203%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day3/day3.cpp)  
  --- Day 4: [*Passport Processing*](https://github.com/ivapanic/aoc-2020/blob/main/day4/Day%204%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day4/day4.cpp)  
  --- Day 5: [*Binary Boarding*](https://github.com/ivapanic/aoc-2020/blob/main/day5/Day%205%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day5/day5.cpp)    
- --- Day 6:  [*Day 6: Custom Customs*](https://github.com/ivapanic/aoc-2020/blob/main/day6/Day%206%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day6/day6.cpp)   
+ --- Day 6:  [*Custom Customs*](https://github.com/ivapanic/aoc-2020/blob/main/day6/Day%206%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day6/day6.cpp)   
  --- Day 7:  
  --- Day 8:  
  --- Day 9:  
