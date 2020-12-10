@@ -76,8 +76,10 @@ bool get_num_bags(std::string contained_bag, std::string mother, std::map<std::s
 }
 
 //PART 2
-int get_num_inside_bag(std::string contained_bag, std::map<std::string, std::vector<std::string>>& bags, int& num_bags_inside, int& total_num_bags)
+int get_num_inside_bag(std::string contained_bag, std::map<std::string, std::vector<std::string>>& bags, int& num_bags_inside, int& total_num_bags, std::map<std::string, bool> visited)
 {
+	visited[contained_bag] = true;
+
 	for (auto bag : bags[contained_bag])
 	{
 		std::string new_bag;
@@ -90,9 +92,12 @@ int get_num_inside_bag(std::string contained_bag, std::map<std::string, std::vec
 			if (bag[0] == 1)
 				new_bag += "s";
 
-			total_num_bags += num_bags_inside;
 		}
-		total_num_bags += num_bags_inside * get_num_inside_bag(new_bag, bags, num_bags_inside, total_num_bags);
+		if (!visited[new_bag])
+		{
+			total_num_bags += num_bags_inside;
+			total_num_bags += num_bags_inside * get_num_inside_bag(new_bag, bags, num_bags_inside, total_num_bags, visited);
+		}
 	}
 
 	return total_num_bags;
@@ -104,6 +109,7 @@ int main()
 	std::string rule;
 	std::map<std::string, std::vector<std::string>> bags;
 	int num_bags_1 = 0; int num_bags_2 = 0; int num_bags_inside = 0;
+	std::map<std::string, bool> visited;
 
 	while (std::getline(bag_rules, rule))
 	{
@@ -116,7 +122,7 @@ int main()
 		if(get_num_bags("shiny gold bag", it->first, bags, num_bags_1))
 			++num_bags_1;
 
-	num_bags_2 = get_num_inside_bag("shiny gold bags", bags, num_bags_inside, num_bags_2);
+	num_bags_2 = get_num_inside_bag("shiny gold bags", bags, num_bags_inside, num_bags_2, visited);
 
 	std::cout << "Part 1: " << num_bags_1 << std::endl;
 	std::cout << "Part 2: " << num_bags_2;
