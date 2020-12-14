@@ -53,13 +53,10 @@ int main()
 	std::stack<int> last_instructions;
 	bool changed = false;
 
-	//PART 1
 	while (std::get<2>(it->second) != 2)
 		execute_instruction(it, instructions, acc_value);
 
 	std::cout << "Part1 : " << acc_value << std::endl;
-
-
 
 }
 
