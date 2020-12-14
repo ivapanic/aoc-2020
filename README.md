@@ -9,8 +9,8 @@
  --- Day 4: [*Passport Processing*](https://github.com/ivapanic/aoc-2020/blob/main/day4/Day%204%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day4/day4.cpp) :white_check_mark: :white_check_mark:    
  --- Day 5: [*Binary Boarding*](https://github.com/ivapanic/aoc-2020/blob/main/day5/Day%205%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day5/day5.cpp) :white_check_mark: :white_check_mark:   
  --- Day 6: [*Custom Customs*](https://github.com/ivapanic/aoc-2020/blob/main/day6/Day%206%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day6/day6.cpp) :white_check_mark: :white_check_mark:    
- --- Day 7:  [*Handy Haversacks*](https://github.com/ivapanic/aoc-2020/blob/main/day7/Day%207%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day7/day7.cpp) :white_check_mark:  
- --- Day 8:  
+ --- Day 7: [*Handy Haversacks*](https://github.com/ivapanic/aoc-2020/blob/main/day7/Day%207%20-%20Advent%20of%20Code%202020.pdf) -> [*:sparkler:*](./day7/day7.cpp) :white_check_mark:  
+ --- Day 8: [*Handheld Halting*] (https://github.com/ivapanic/aoc-2020/blob/main/day8/Day%208%20-%20Advent%20of%20Code%202020.pdf) -> [*sparkler*] (./day8/day8.cpp) :white_check_mark:    
  --- Day 9:  
  --- Day 10:  
  --- Day 11:  
