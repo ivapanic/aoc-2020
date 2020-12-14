@@ -19,7 +19,7 @@ std::vector<std::string>& split(const std::string& s, char delimeter, std::vecto
 }
 
 
-void get_bags(std::vector<std::string>& elements, std::map<std::string, std::vector<std::string>>& bags)
+void adjust_data(std::vector<std::string>& elements, std::map<std::string, std::vector<std::string>>& bags)
 {
 	bool is_mother_bag = true;
 	std::string mother; std::string child;
@@ -51,57 +51,77 @@ void get_bags(std::vector<std::string>& elements, std::map<std::string, std::vec
 	mother.clear();
 }
 
+std::map<std::string, std::vector<std::pair<int, std::string>>> parse(std::map<std::string, std::vector<std::string>>& bags)
+{
+	std::map<std::string, std::vector<std::pair<int, std::string>>> parsed_bags;
+
+	for (auto it = bags.begin(); it != bags.end(); ++it)
+	{
+		for (auto bag : it->second)
+		{
+			if (bag.find_first_of("0123456789") != std::string::npos)
+			{
+				std::string str(1, bag[0]);
+				parsed_bags[it->first].push_back(std::make_pair(std::stoi(str), bag.substr(2)));
+			}
+			else
+				parsed_bags[it->first].push_back(std::make_pair(0, bag.substr(3)));
+		}
+	}
+
+	return parsed_bags;
+}
+
+std::string get_new_bag(std::pair<int, std::string>& bag)
+{
+	std::string new_mother = bag.second;
+	if (bag.first == 1) new_mother += "s";
+
+	return new_mother;
+}
+
+
 //PART 1
-bool get_num_bags(std::string contained_bag, std::string mother, std::map<std::string, std::vector<std::string>>& bags, int& num_bags)
+bool get_num_bags(std::string contained_bag, std::string mother, std::map<std::string, std::vector<std::pair<int, std::string>>>& bags, int& num_bags)
 {
 		for (auto bag : bags[mother])
 		{
-			if (bag.find(contained_bag) != std::string::npos)
+			if (bag.second.find(contained_bag) != std::string::npos)
 				return true;
 		}
 
 		bool contains = false;
 		for (auto bag : bags[mother])
 		{
-			if (bag.find_first_of("0123456789") != std::string::npos)
-			{
-				std::string new_mother = bag.substr(bag.find_first_of("0123456789") + 2);
-				if (new_mother[new_mother.length() - 1] != 's')
-					new_mother += "s";
-				if (get_num_bags(contained_bag, new_mother, bags, num_bags))
+			std::string new_mother = get_new_bag(bag);
+
+			if (get_num_bags(contained_bag, new_mother, bags, num_bags))
 					contains = true;
-			}
 		}
 		return contains;
 }
 
+
 //PART 2
-int get_num_inside_bag(std::string contained_bag, std::map<std::string, std::vector<std::string>>& bags, int& num_bags_inside, int& total_num_bags, std::map<std::string, bool> visited)
+int get_num_inside_bag(std::string contained_bag, std::map<std::string, std::vector<std::pair<int, std::string>>>& bags, std::map<std::string, bool>& visited)
 {
 	visited[contained_bag] = true;
-
+	int total_num_bags = 0;
 	for (auto bag : bags[contained_bag])
 	{
-		std::string new_bag;
-		if (bag.find_first_of("0123456789") != std::string::npos && bag.substr(0, 2) != "no")
-		{
-			std::string str(1, bag[0]);
-			num_bags_inside = std::stoi(str);
-			new_bag = bag.substr(bag.find_first_of("0123456789") + 2);
+		int num_bags_inside = bag.first;
+		std::string new_bag = get_new_bag(bag);
 
-			if (bag[0] == 1)
-				new_bag += "s";
-
-		}
 		if (!visited[new_bag])
 		{
 			total_num_bags += num_bags_inside;
-			total_num_bags += num_bags_inside * get_num_inside_bag(new_bag, bags, num_bags_inside, total_num_bags, visited);
+			total_num_bags += num_bags_inside * get_num_inside_bag(new_bag, bags, visited);
 		}
 	}
-
+	
 	return total_num_bags;
 }
+
 
 int main()
 {
@@ -115,14 +135,16 @@ int main()
 	{
 		std::vector<std::string> elements;
 		split(rule, ' ', elements);
-		get_bags(elements, bags);
+		adjust_data(elements, bags);
 	}
 
+	std::map<std::string, std::vector<std::pair<int, std::string>>> parsed_bags = parse(bags);
+
 	for (auto it = bags.begin(); it != bags.end(); ++it)
-		if(get_num_bags("shiny gold bag", it->first, bags, num_bags_1))
+		if(get_num_bags("shiny gold bag", it->first, parsed_bags, num_bags_1))
 			++num_bags_1;
 
-	num_bags_2 = get_num_inside_bag("shiny gold bags", bags, num_bags_inside, num_bags_2, visited);
+	num_bags_2 = get_num_inside_bag("shiny gold bags", parsed_bags, visited);
 
 	std::cout << "Part 1: " << num_bags_1 << std::endl;
 	std::cout << "Part 2: " << num_bags_2;
